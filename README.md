@@ -1,4 +1,5 @@
-# event-driven-springboot-kafka
+# Event-Driven Spring Boot with Kafka
+
 This repository contains a demonstration of building microservices with Spring Boot for producing and consuming messages using Apache Kafka, showcasing an event-driven architecture.
 
 ## Features
@@ -11,7 +12,7 @@ This repository contains a demonstration of building microservices with Spring B
 
 ## Kafka Setup on Local
 
-To run the Kafka producer and consumer locally, you need to have Apache Kafka installed. You can follow the steps below to set up Kafka on your local machine:
+To run the Kafka producer and consumer locally, you need to have Apache Kafka installed. Follow the steps below to set up Kafka on your local machine:
 
 1. **Download Apache Kafka:**
    Download Apache Kafka from the [official website](https://kafka.apache.org/downloads).
@@ -20,47 +21,50 @@ To run the Kafka producer and consumer locally, you need to have Apache Kafka in
    Extract the downloaded Kafka archive to a directory of your choice.
 
 3. **Start Zookeeper:**
-   Navigate to the Kafka directory and start Zookeeper using the following command:
-
+   Open a new terminal, navigate to the Kafka directory and start Zookeeper using the following command:
+   ```bash
    bin/zookeeper-server-start.sh config/zookeeper.properties
+   ```
 
-5. **Start Kafka Broker:**
-Open a new terminal window, navigate to the Kafka directory, and start the Kafka broker using the following command:
-bin/kafka-server-start.sh config/server.properties
+4. **Start Kafka Broker:**
+   Open a new terminal window, navigate to the Kafka directory, and start the Kafka broker using the following command:
+   ```bash
+   bin/kafka-server-start.sh config/server.properties
+   ```
 
-6. **Create Kafka Topics:**
+5. **Create Kafka Topics:**
 You can create Kafka topics either manually or by running the application. If you want to create topics manually, you can use the following commands:
+   ```bash
+   bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --topic message-payload-topic --partitions 3 --replication-factor 1
+   ```
 
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic topic-with-partitions-3
-bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3 --topic message-payload-topic
+## Repositories Setup
 
+1. **Clone the both Repositories:**
+- Producer Repository: [kafka-producer-service](https://github.com/ashwani-cse/kafka-producer-service)
+- Consumer Repository: [kafka-consumer-service](https://github.com/ashwani-cse/kafka-consumer-service.git)
 
-## Clone Repository
-
-To clone this repository, use the following steps:
-
-1. **Clone the Repository:**
-git clone <repository_url>
-
-
-2. **Navigate to Project Directory:**
-cd kafka-producer-consumer
+2. **Navigate to Each Project Directories:**
+cd repository-name
 
 ## Run Spring Boot Application To run the Spring Boot application, follow these steps: 1. **Build the Project:**
-mvn clean install
+   ```bash
+   mvn clean install
+   ```
 
+3. **Run the Application:**
+   ```bash
+   mvn spring-boot:run
+   ```
 
-2. **Run the Application:**
-mvn spring-boot:run
-
-
-Once the application is running, you can produce messages through the Kafka topics using specified endpoint.
-curl --location 'http://localhost:8081/publish' \
---header 'Content-Type: application/json' \
---data '{
-    "message": "#test message3 partion -> 0"
-}'
-
+Once the application is running, you can produce messages through the Kafka topics using a specified endpoint.
+   ```bash
+   curl --location 'http://localhost:8081/publish' \
+   --header 'Content-Type: application/json' \
+   --data '{
+       "message": "#test message3 partion -> 0"
+   }'
+   ```
 
 
 
