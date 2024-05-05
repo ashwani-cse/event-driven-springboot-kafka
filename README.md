@@ -45,9 +45,13 @@ You can create Kafka topics either manually or by running the application. If yo
 - Consumer Repository: [kafka-consumer-service](https://github.com/ashwani-cse/kafka-consumer-service.git)
 
 2. **Navigate to Each Project Directories:**
-cd repository-name
+   ```bash
+   cd repository-name
+   ```
 
-## Run Spring Boot Application To run the Spring Boot application, follow these steps: 1. **Build the Project:**
+## Run Spring Boot Application 
+### To run the Spring Boot application, follow these steps: 
+1. **Build the Project:**
    ```bash
    mvn clean install
    ```
@@ -66,6 +70,17 @@ Once the application is running, you can produce messages through the Kafka topi
    }'
    ```
 
+## Stay Connected
+
+Connect with us on social media and stay updated with the latest news and developments:
+
+- [LinkedIn](https://www.linkedin.com/in/ashwanicse/)
+- [Leetcode](https://leetcode.com/ashwani__kumar/)
+- [Topmate](https://topmate.io/ashwanikumar)
+
+## Subscribe to our Newsletter
+Stay ahead of the curve by subscribing to our LinkedIn newsletter:
+- [Subscribe Now](https://www.linkedin.com/newsletters/7084124970443767808/)
 
 
 
